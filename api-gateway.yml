@@ -1,5 +1,5 @@
 custom:
-  message: Centralized config for api gateway
+  message: Centralized config for api gateway (including refresh scope)
 server:
   port: 9000
 
