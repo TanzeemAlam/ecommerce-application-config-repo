@@ -11,6 +11,8 @@ spring:
         uri: lb://user-service
         predicates:
         - Path=/users/**
+        filters:
+        - AuthenticationFilter
 
 management:
   endpoints:
