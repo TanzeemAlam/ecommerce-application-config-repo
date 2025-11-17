@@ -1,0 +1,19 @@
+custom:
+  message: Centralized config for api gateway
+server:
+  port: 9000
+
+spring:
+  cloud:
+    gateway:
+      routes:
+      - id: user-service
+        uri: lb://user-service
+        predicates:
+        - Path=/users/**
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health, info, gateway
