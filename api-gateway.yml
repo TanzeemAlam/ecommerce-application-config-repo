@@ -19,6 +19,12 @@ spring:
             - Path=/products/**
           filters:
             - AuthenticationFilter
+        - id: product-detail-service
+          uri: lb://product-detail-service
+          predicates:
+            - Path=/product-details/**
+          filters:
+            - AuthenticationFilter
 
 management:
   endpoints:
