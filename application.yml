@@ -13,20 +13,3 @@ management:
 logging:
   pattern:
     level: "%5p [${spring.application.name},traceId=%X{traceId},spanId=%X{spanId}]"
-
-eureka:
-  instance:
-    prefer-ip-address: true
-    hostname: localhost
-
-spring:
-  cloud:
-    inetutils:
-      use-only-site-local-interfaces: false
-      ignored-networks: 
-        - 172.
-        - 10.
-      ignored-interfaces:
-        - vEthernet*
-        - WSL*
-        - Docker*
