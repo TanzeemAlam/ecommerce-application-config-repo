@@ -26,6 +26,14 @@ spring:
           filters:
             - AuthenticationFilter
 
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://172.27.64.1:8761/eureka/
+  instance:
+    prefer-ip-address: true
+    instance-id: ${spring.application.name}:${server.port}
+
 management:
   endpoints:
     web:
