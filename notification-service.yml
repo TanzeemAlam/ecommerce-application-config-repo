@@ -1,0 +1,37 @@
+custom:
+  message: Centralized config for Notification Service (including refresh scope)
+server:
+  port: 8084
+
+spring:
+  kafka:
+    bootstrap-servers: localhost:9092
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://172.27.64.1:8761/eureka/
+  instance:
+    prefer-ip-address: true
+    instance-id: ${spring.application.name}:${server.port}
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health, info, gateway, refresh
+  tracing:
+    sampling:
+      probability: 1.0  #Trace everything - 100%
+    propagation:
+      type: B3
+    export:
+      zipkin:
+        enabled: true
+
+zipkin:
+  enabled: true
+  base-url: http://localhost:9411/zipkin/
