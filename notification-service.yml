@@ -6,9 +6,11 @@ server:
 spring:
   kafka:
     bootstrap-servers: localhost:9092
-    producer:
-      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+    consumer:
       value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+      properties:
+        spring.json.trusted.packages: "*"
+        spring.json.value.default.type: com.tanzeem.notification_service.event
 
 eureka:
   client:
