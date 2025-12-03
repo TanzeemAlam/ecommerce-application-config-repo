@@ -6,6 +6,8 @@ server:
 spring:
   cloud:
     gateway:
+      observation:
+        enabled: true
       routes:
         - id: user-service
           uri: lb://user-service
