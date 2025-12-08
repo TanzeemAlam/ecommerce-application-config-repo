@@ -33,6 +33,18 @@ spring:
             - Path=/inventory/**
           filters:
             - AuthenticationFilter
+        - id: cart-service
+          uri: lb://cart-service
+          predicates:
+            - Path=/cart/**
+          filters:
+            - AuthenticationFilter
+        - id: order-service
+          uri: lb://order-service
+          predicates:
+            - Path=/order/**
+          filters:
+            - AuthenticationFilter
 
 eureka:
   client:
